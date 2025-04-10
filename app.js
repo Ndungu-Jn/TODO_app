@@ -37,7 +37,7 @@ function updateTodoList() {
 }
 
 function createTodoItem(todo, todoIndex) {
-  const todoId = "todo-" + todoindex;
+  const todoId = "todo-" + todoIndex;
   const todoLi = document.createElement("li");
   todoLi.className = "todo";
   todoLi.innerHTML = ` <input type="checkbox" id="${todoId}" />
