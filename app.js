@@ -22,7 +22,11 @@ todoForm.addEventListener("submit", function (event) {
 function addTodo() {
   const todoText = todoInput.value.trim();
   if (todoText.length > 0) {
-    allTodos.push(todoText);
+    const todoObject = {
+      text: todoText,
+      completed: false,
+    };
+    allTodos.push(todoObject);
     updateTodoList();
     saveTodo();
     console.log(allTodos);
@@ -41,6 +45,7 @@ function updateTodoList() {
 function createTodoItem(todo, todoIndex) {
   const todoId = "todo-" + todoIndex;
   const todoLi = document.createElement("li");
+  const todoText = todo.text;
   todoLi.className = "todo";
   todoLi.innerHTML = ` <input type="checkbox" id="${todoId}" />
           <label class="custom-checkbox" for="${todoId}">
@@ -58,7 +63,7 @@ function createTodoItem(todo, todoIndex) {
             </svg>
           </label>
           <label for="${todoId}" class="todo-text">
-            ${todo}
+            ${todoText}
           </label>
           <button class="delete-button">
             <svg
@@ -78,8 +83,19 @@ function createTodoItem(todo, todoIndex) {
   deletebutton.addEventListener("click", () => {
     deleteTodoItem(todoIndex);
   });
+  const checkbox = todoLi.querySelector("input");
+  checkbox.addEventListener("change", () => {
+    allTodos[todoIndex].completed = checkbox.checked;
+    saveTodo();
+  });
+  checkbox.checked = todo.completed;
 
   return todoLi;
+  function deleteTodoItem(todoIndex) {
+    allTodos = allTodos.filter((_, i) => i !== todoIndex);
+    saveTodo();
+    updateTodoList();
+  }
 }
 //saving the todos in the local storage
 function saveTodo() {
