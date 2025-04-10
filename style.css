@@ -55,3 +55,29 @@ h1 {
   color: var(--text-color);
   caret-color: var(--accent-color);
 }
+
+/* removes the outomatic highlighting of the browser in that text field*/
+#todo-input:focus {
+  outline: none;
+}
+
+/* the button below has gone to the far rigght corner, therefore to correct and make it relative to the form the code below corrects it */
+form {
+  position: relative;
+}
+
+#add-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  background-color: var(--accent-color);
+  height: 100px;
+  padding: 0 30px;
+  border: none;
+  border-radius: 1000px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--background);
+  cursor: pointer;
+}
