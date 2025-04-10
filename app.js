@@ -9,7 +9,8 @@ const todoForm = document.querySelector("form");
 const todoInput = document.getElementById("todo-input");
 const todoListUL = document.getElementById("todo-list");
 
-let allTodos = [];
+let allTodos = getTodos();
+updateTodoList();
 // Load todos from local storage when the page loads
 
 todoForm.addEventListener("submit", function (event) {
@@ -23,6 +24,7 @@ function addTodo() {
   if (todoText.length > 0) {
     allTodos.push(todoText);
     updateTodoList();
+    saveTodo();
     console.log(allTodos);
     todoInput.value = "";
   }
@@ -72,5 +74,20 @@ function createTodoItem(todo, todoIndex) {
               />
             </svg>
           </button>`;
+  const deletebutton = todoLi.querySelector(".delete-button");
+  deletebutton.addEventListener("click", () => {
+    deleteTodoItem(todoIndex);
+  });
+
   return todoLi;
+}
+//saving the todos in the local storage
+function saveTodo() {
+  const todoJson = JSON.stringify(allTodos); //make sure it saves in string as the storage only accepts steings
+  localStorage.setItem("todos", todoJson);
+}
+
+function getTodos() {
+  const todos = localStorage.getItem("todos") || "[]";
+  return JSON.parse(todos); // return back to it original format from String
 }
