@@ -4,6 +4,9 @@
 ## About the Project
 This is a simple and interactive To-Do List App built using HTML, CSS, and JavaScript. The project helped me practice and understand core JavaScript concepts while building a real-world project.
 
+## Link to website
+https://ndungu-jn.github.io/TODO_app/
+
 ## Features
 
 - ✅ Add new tasks
