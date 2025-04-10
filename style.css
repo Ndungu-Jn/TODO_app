@@ -90,3 +90,20 @@ form {
   display: flex;
   align-items: center;
 }
+
+.todo .todo-text {
+  padding: 15px;
+  padding-right: 0;
+  /* flex-grow ensures the text grows as long as possible, pushing the delete to the far end */
+  flex-grow: 1;
+}
+
+.delete-button {
+  padding: 3px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
