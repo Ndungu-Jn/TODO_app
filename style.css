@@ -125,3 +125,12 @@ form {
   align-items: center;
   flex-shrink: 0;
 }
+
+/* editting the child */
+input[type="checkbox"]:checked ~ .custom-checkbox {
+  background-color: var(--accent-color);
+}
+/* styled the child including the svg */
+input[type="checkbox"]:checked ~ .custom-checkbox svg {
+  fill: var(--primary-color);
+}
