@@ -107,3 +107,10 @@ form {
   align-items: center;
   cursor: pointer;
 }
+
+.delete-button svg {
+  trasnsition: 200ms ease;
+}
+.delete-button:hover svg {
+  fill: red;
+}
