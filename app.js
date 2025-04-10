@@ -7,7 +7,7 @@
 
 const todoForm = document.querySelector("form");
 const todoInput = document.getElementById("todo-input");
-const todoList = document.getElementById("todo-list");
+const todoListUL = document.getElementById("todo-list");
 
 let allTodos = [];
 // Load todos from local storage when the page loads
@@ -22,7 +22,14 @@ function addTodo() {
   const todoText = todoInput.value.trim();
   if (todoText.length > 0) {
     allTodos.push(todoText);
+    createTodoItem(todoText);
     console.log(allTodos);
     todoInput.value = "";
   }
+}
+
+function createTodoItem(todo) {
+  const todoLi = document.createElement("li");
+  todoLi.innerText = todo;
+  todoListUL.append(todoLi);
 }
