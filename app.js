@@ -17,7 +17,12 @@ todoForm.addEventListener("submit", function (event) {
   addTodo();
 });
 
+//The function ensures pushing of input text and also ensuring the field has something.
 function addTodo() {
   const todoText = todoInput.value.trim();
-  alert(todoText);
+  if (todoText.length > 0) {
+    allTodos.push(todoText);
+    console.log(allTodos);
+    todoInput.value = "";
+  }
 }
